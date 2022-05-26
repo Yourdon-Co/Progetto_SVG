@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637890630937095188
-    m_Hash: 1386908661
+      ticks: 637891692218822061
+    m_Hash: 2886274747
   m_LockFileStatus:
     m_FilePath: C:/Users/cecca/Desktop/Progetto_SVG/My project/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637890632703309938
-    m_Hash: 401634145
+      ticks: 637891692218842038
+    m_Hash: 692750746
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:

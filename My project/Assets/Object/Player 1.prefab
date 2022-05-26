@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1466145202751423149}
   - component: {fileID: 6390064791841860222}
   - component: {fileID: 1466145202751423142}
+  - component: {fileID: -8570481637030684932}
+  - component: {fileID: -6544377183382900941}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -145,3 +147,29 @@ MonoBehaviour:
   speed: 10
   vertical: 0
   horizontal: 0
+--- !u!114 &-8570481637030684932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833446655738420419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d16e7958a62f06489af992dba5d6593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinCounter: {fileID: -6544377183382900941}
+--- !u!114 &-6544377183382900941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833446655738420419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de3aed2db75434246a0a7115ce9b6dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberCoin: 0

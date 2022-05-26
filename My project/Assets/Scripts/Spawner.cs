@@ -5,13 +5,16 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     //alcuni attributi sono pubblici in modo tale da modificarli direttamente in Unity
-
-    public GameObject objectToSpawn;
+    [SerializeField]
+    private GameObject objectToSpawn;
     private GameObject[] objectSpawned;
     private bool stopSpawning = false;
-    public float spawnTime;
-    public float spawnRepeatRate;
-    public int limit;
+    [SerializeField]
+    private float spawnTime;
+    [SerializeField]
+    private float spawnRepeatRate;
+    [SerializeField]
+    private int limit;
 
 
    

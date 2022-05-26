@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Rigidbody rb;
+    [SerializeField]
+    private Rigidbody rb;
+    [SerializeField]
+    private float speed = 10f;
 
-    public float speed = 10f;
+    [SerializeField]
+    private float vertical = 0f;
+    [SerializeField]
+    private float horizontal = 0f;
 
-    public float vertical = 0f;
-    public float horizontal = 0f;
-
-    Vector3 moveDirection;
+    private Vector3 moveDirection;
 
 
 

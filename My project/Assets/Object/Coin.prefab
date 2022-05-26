@@ -143,6 +143,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1563179368438345679}
   spawnTime: 1
-  spawnDelay: 4
-  tag: coin
+  spawnRepeatRate: 0
   limit: 50

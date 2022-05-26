@@ -143,6 +143,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1263425559710632066}
   spawnTime: 1
-  spawnDelay: 4
-  tag: powerUp
+  spawnRepeatRate: 0
   limit: 50

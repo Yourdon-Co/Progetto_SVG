@@ -5,7 +5,8 @@ using UnityEngine;
 public class Gravity : MonoBehaviour
 
 {
-    public PlanetScript attractorPlanet;
+    [SerializeField]
+    private PlanetScript attractorPlanet;
     private Transform playerTransform;
 
     // Start is called before the first frame update

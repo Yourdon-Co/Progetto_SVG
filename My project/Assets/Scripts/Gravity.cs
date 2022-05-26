@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGravity : MonoBehaviour
+public class Gravity : MonoBehaviour
 
 {
     public PlanetScript attractorPlanet;

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlanetScript : MonoBehaviour
 {
-    public float gravity = -12;
+    [SerializeField]
+    private float gravity = -12;
 
     public void Attract(Transform playerTransform)
     {

@@ -8,18 +8,18 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 10f;
 
-    public float vertical =0f;
-    public float horizontal=0f;
+    public float vertical = 0f;
+    public float horizontal = 0f;
 
     Vector3 moveDirection;
 
-    
+
 
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal")* speed * Time.deltaTime;
-        float vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        TouchMovement();
+        vertical = 1 * speed * Time.deltaTime;
         moveDirection = new Vector3(horizontal, 0, vertical).normalized;
     }
 
@@ -27,4 +27,20 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
     }
+
+    private void TouchMovement()
+    {
+        if (Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).position.x > Screen.width / 2)
+            {
+                horizontal = 1 * speed * Time.deltaTime;
+            }
+            else if (Input.GetTouch(0).position.x < Screen.width / 2)
+            {
+                horizontal = -1 * speed * Time.deltaTime;
+            }
+        }
+    }
 }
+

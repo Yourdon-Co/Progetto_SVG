@@ -23,4 +23,20 @@ public class Menu : MonoBehaviour
     {
         SettingsUI.SetActive(false);
     }
+   public void OpenShop()
+    {
+         SceneManager.LoadScene("Shop");
+
+    }
+    public void OpenGarage()
+    {
+        SceneManager.LoadScene("Garage");
+    }
+
+    public void OpenHome()
+    {
+        SceneManager.LoadScene("Home");
+
+    }
+   
 }

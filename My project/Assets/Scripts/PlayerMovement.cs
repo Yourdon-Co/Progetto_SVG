@@ -6,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
 
-    public float speed = 10f;
+    public float speedHorizontl = 10f;
+    public float speedVertical = 5f;
 
     public float vertical =0f;
     public float horizontal=0f;
@@ -18,9 +19,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal")* speed * Time.deltaTime;
-        float vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
+         horizontal =Input.GetAxis("Horizontal")* speedHorizontl * Time.deltaTime;
+         vertical = Input.GetAxis("Vertical") * speedVertical * Time.deltaTime;
+        moveDirection = new Vector3(horizontal, 0, vertical);
     }
 
     private void FixedUpdate()

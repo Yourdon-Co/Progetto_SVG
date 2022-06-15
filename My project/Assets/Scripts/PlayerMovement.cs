@@ -13,19 +13,33 @@ public class PlayerMovement : MonoBehaviour
     public float horizontal=0f;
 
     Vector3 moveDirection;
+    Vector3 moveRotation;
 
-    
+    [SerializeField]
+    public float rotationSpeed =0f;
 
     // Update is called once per frame
     void Update()
     {
-         horizontal =Input.GetAxis("Horizontal")* speedHorizontl * Time.deltaTime;
+         horizontal =Input.GetAxis("Horizontal") * speedHorizontl * Time.deltaTime;
          vertical = Input.GetAxis("Vertical") * speedVertical * Time.deltaTime;
-        moveDirection = new Vector3(horizontal, 0, vertical);
+        moveDirection = new Vector3(0, 0, vertical);
+        moveRotation = new Vector3(horizontal, 0, 0);
+
+        //moveDirection.Normalize();
+        //moveRotation.Normalize();
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
+        //rb.MovePosition(rb.position + transform.forward * speedHorizontl * Time.fixedDeltaTime);
+
+        if (moveRotation != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveRotation, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+        }
     }
 }

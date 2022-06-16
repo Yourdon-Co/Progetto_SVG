@@ -21,8 +21,8 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = 0 * speed * Time.deltaTime;
-        float vertical = 1 * speed * Time.deltaTime;
+        horizontal = 0 * speed * Time.deltaTime;
+        vertical = 1 * speed * Time.deltaTime;
         moveDirection = new Vector3(horizontal, 0, vertical).normalized;
     }
 

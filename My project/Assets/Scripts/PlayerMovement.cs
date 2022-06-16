@@ -21,8 +21,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         horizontal =Input.GetAxis("Horizontal") * speedHorizontl * Time.deltaTime;
-         vertical = Input.GetAxis("Vertical") * speedVertical * Time.deltaTime;
+        //horizontal =Input.GetAxis("Horizontal") * speedHorizontl * Time.deltaTime;
+        TouchMovement();
+        vertical = Input.GetAxis("Vertical") * speedVertical * Time.deltaTime;
+        //vertical = 1 * speedVertical * Time.deltaTime;
         moveDirection = new Vector3(0, 0, vertical);
         moveRotation = new Vector3(horizontal, 0, 0);
 
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
-        //rb.MovePosition(rb.position + transform.forward * speedHorizontl * Time.fixedDeltaTime);
+ 
 
         if (moveRotation != Vector3.zero)
         {
@@ -42,4 +44,19 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
+
+    void TouchMovement()
+    {
+        if (Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).position.x > Screen.width / 2)
+            {
+                horizontal = 1 * speedHorizontl * Time.deltaTime;
+            }
+            if (Input.GetTouch(0).position.x < Screen.width / 2)
+            {
+                horizontal = -1 * speedHorizontl * Time.deltaTime;
+            }
+        }
+    } 
 }

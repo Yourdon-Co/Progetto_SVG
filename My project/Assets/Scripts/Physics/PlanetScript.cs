@@ -41,6 +41,7 @@ public class PlanetScript : MonoBehaviour
 
         playerTransform.GetComponent<Rigidbody>().AddForce(gravityUp * gravity);
 
+        //parte che serve per ruotare il corpo dell'ggetto verso il lato giusto, i modo tale che sia piano rispetto alla superficie della sfera
         Quaternion targetRotation = Quaternion.FromToRotation(localUp, gravityUp) * playerTransform.rotation;
         playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, 50f * Time.deltaTime);
     }

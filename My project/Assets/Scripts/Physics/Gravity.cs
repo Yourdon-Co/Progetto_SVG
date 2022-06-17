@@ -7,7 +7,7 @@ public class Gravity : MonoBehaviour
 {
     [SerializeField]
     private PlanetScript attractorPlanet;
-    private Transform playerTransform;
+    private Transform objectTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class Gravity : MonoBehaviour
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
-        playerTransform = transform;
+        objectTransform = transform;
         
     }
 
@@ -25,7 +25,7 @@ public class Gravity : MonoBehaviour
     {
         if (attractorPlanet)
         {
-            attractorPlanet.Attract(playerTransform);
+            attractorPlanet.Attract(objectTransform);
         }
         
     }

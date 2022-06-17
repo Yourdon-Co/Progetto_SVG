@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{
+{/*
     public Rigidbody rb;
 
     public float speedHorizontl = 10f;
@@ -59,4 +59,62 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     } 
+    */
+    
+    [SerializeField]
+    private float speedVertical = 10f;
+    [SerializeField]
+    private float rotationSpeed = 10f;
+
+    private float rotation;
+    private Rigidbody rb;
+
+    public float getSpeed()
+    {
+        return speedVertical;
+    }
+
+    public void setSpeed(float newSpeed) 
+    {
+        speedVertical = newSpeed;
+    }
+
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        rotation = TouchMovement();
+    }
+
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + transform.forward * speedVertical * Time.fixedDeltaTime);
+        Vector3 yRotation = Vector3.up * rotation * rotationSpeed * Time.fixedDeltaTime;
+        Quaternion deltaRotation = Quaternion.Euler(yRotation);
+        Quaternion targetRotation = rb.rotation * deltaRotation;
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, 50f * Time.deltaTime));
+        transform.Rotate(0f, rotation * rotationSpeed * Time.fixedDeltaTime, 0f, Space.Self);
+    }
+
+    private int TouchMovement()
+    {
+        int rotation = 0;
+
+        if (Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).position.x > Screen.width / 2)
+            {
+                rotation = 1;
+            }
+            if (Input.GetTouch(0).position.x < Screen.width / 2)
+            {
+                rotation = -1;
+            }
+        }
+        return rotation;
+    }
 }

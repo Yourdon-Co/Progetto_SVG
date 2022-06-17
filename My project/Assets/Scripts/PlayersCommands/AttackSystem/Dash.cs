@@ -7,17 +7,19 @@ using UnityEngine.UI;
 public class Dash : MonoBehaviour
 {
 
-    public PlayerMovement playerMovement;
+    public GameObject player;
     public float initialSpeed;
 
     public Button dashButton;
     private Button btn;
 
+    private float time = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
         btn = dashButton.GetComponent<Button>();
-        initialSpeed = playerMovement.speedVertical;
+        initialSpeed = player.GetComponent<PlayerMovement>().getSpeed();
         btn.onClick.AddListener(DashFunction);
     }
 
@@ -28,16 +30,16 @@ public class Dash : MonoBehaviour
     }
     void ResetSpeed()
     {
-        playerMovement.speedVertical = initialSpeed;
+        player.GetComponent<PlayerMovement>().setSpeed(initialSpeed);
         Debug.Log("Dash resettato");
 
     }
 
     void DashFunction()
     {
-        playerMovement.speedVertical = initialSpeed * 2;
+        player.GetComponent<PlayerMovement>().setSpeed(initialSpeed * 2);
         Debug.Log("Dash partito");
-        Invoke("ResetSpeed", 5.0f);
+        Invoke("ResetSpeed", time);
 
     }
 }

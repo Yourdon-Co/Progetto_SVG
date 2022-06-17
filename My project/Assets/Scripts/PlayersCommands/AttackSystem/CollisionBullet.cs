@@ -22,6 +22,12 @@ public class CollisionBullet : MonoBehaviour
         {
             enemyLife.decreaseHealth(bulletDamage);
         }
+        //se è attivo lo scudo
+        if (collision.gameObject.name == "Shield")
+        {
+            //forse bisogna distruggere anche il bullet
+            Destroy(collision.gameObject);
+        }
 
     }
 }

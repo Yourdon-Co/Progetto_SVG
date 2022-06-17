@@ -6,6 +6,8 @@ public class ObjectCollector : MonoBehaviour
 {
     [SerializeField]
     private CoinCounter coinCounter;
+    [SerializeField]
+    private Shield shield;
 
     //non si può utlizzare questa funzione poichè in quetso caso con la funzione trigger bisogna attivare is trigger
     //che disabilita la gravità e se non ci fosse la gravità le monete andrebbero a fanculo per questo come soluzione basta 
@@ -29,11 +31,11 @@ public class ObjectCollector : MonoBehaviour
     }
     */
 
-        //Questa funzione permette al momento della collisione con la moneta o con il powerUp di richiamare nel
-        //caso della moneta una funzione che aumenta il numero di monete raccolte,il quale sarà presente nello script 
-        //Coin Countere e nel caso del powerUp richiamerà una ipotetica funzione che modifica delle stats,
-        //presente anche essa in un altro script.Quando avviene la collisione l'oggetto raccolto viene ditrutto.
-        private void OnCollisionEnter(Collision collisionInfo)
+    //Questa funzione permette al momento della collisione con la moneta o con il powerUp di richiamare nel
+    //caso della moneta una funzione che aumenta il numero di monete raccolte,il quale sarà presente nello script 
+    //Coin Countere e nel caso del powerUp richiamerà una ipotetica funzione che modifica delle stats,
+    //presente anche essa in un altro script.Quando avviene la collisione l'oggetto raccolto viene ditrutto.
+    private void OnCollisionEnter(Collision collisionInfo)
         {
             if (collisionInfo.collider.tag == "coin")
             {
@@ -44,9 +46,12 @@ public class ObjectCollector : MonoBehaviour
 
             else if (collisionInfo.collider.tag == "powerUp")
             {
-                //realizzare una funzione che attivi il powerUp/ come  è stato fatto per coinCounter.Add
+            //decidere se realizzare tanti tag di powerup quanti sono questi oppure trovare un altro modo tramite ID
+            //realizzare una funzione che attivi il powerUp/ come  è stato fatto per coinCounter.Add
+                
                 Destroy(collisionInfo.collider.gameObject);
-            }
+                shield.ActiveShield();
+        }
     }
 
 }

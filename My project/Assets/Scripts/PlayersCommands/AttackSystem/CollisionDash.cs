@@ -6,11 +6,11 @@ public class CollisionDash : MonoBehaviour
 {
 
     public float initialSpeed;
-    public PlayerMovement playerMovement;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        initialSpeed = playerMovement.speedVertical;
+        initialSpeed = player.GetComponent<PlayerMovement>().getSpeed();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class CollisionDash : MonoBehaviour
     {
         int dashDamage = 30;
 
-        if (playerMovement.speedVertical > initialSpeed)
+        if (player.GetComponent<PlayerMovement>().getSpeed() > initialSpeed)
         {
             if (collision.gameObject.name == "Enemy 1")
                 Debug.Log("Hai colpito il nemico");
@@ -33,6 +33,12 @@ public class CollisionDash : MonoBehaviour
             if (enemyLife != null)
             {
                 enemyLife.decreaseHealth(dashDamage);
+            }
+
+            //se è attivo lo scudo
+            if(collision.gameObject.name == "Shield")
+            {
+                Destroy(collision.gameObject);
             }
         }
     }

@@ -41,6 +41,7 @@ public class ObjectCollector : MonoBehaviour
             {
                 coinCounter.addCoin();
                 Destroy(collisionInfo.collider.gameObject);
+                coinCounter.DisplayCoin();
             }
 
 

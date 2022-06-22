@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class Timer : MonoBehaviour
 {
@@ -39,7 +41,9 @@ public class Timer : MonoBehaviour
             Debug.Log("Time has run out!");
             timeRemaining = 0;
             timerIsRunning = false;
-            //lanciare la funzione che chiama la schermata di fine partita che andrà creta in un ipotetico game manager
+
+            SceneManager.LoadScene("Home");
+            //lanciare la funzione che chiama la schermata di fine partita che andrà spostata in un game manager
         }
     }
 

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
+    public bool isAlive;
 
     // Start is called before the first frame update
     void Start()
     {
+        isAlive = true;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -18,9 +21,18 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (currentHealth > 0)
         {
-            TakeDamage(20);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                TakeDamage(20);
+            }
+        }
+        else
+        {
+            isAlive = false;
+            SceneManager.LoadScene("Home");
+            //da spostare nello script Game Manager che gestirà la schermata di fine partita
         }
     }
 

@@ -8,6 +8,10 @@ public class ObjectCollector : MonoBehaviour
     private CoinCounter coinCounter;
     [SerializeField]
     private Shield shield;
+    [SerializeField]
+    private PlayerHealth playerhealth;
+    [SerializeField]
+    private CollisionBullet collisionbullet;
 
     //non si può utlizzare questa funzione poichè in quetso caso con la funzione trigger bisogna attivare is trigger
     //che disabilita la gravità e se non ci fosse la gravità le monete andrebbero a fanculo per questo come soluzione basta 
@@ -36,22 +40,34 @@ public class ObjectCollector : MonoBehaviour
     //Coin Countere e nel caso del powerUp richiamerà una ipotetica funzione che modifica delle stats,
     //presente anche essa in un altro script.Quando avviene la collisione l'oggetto raccolto viene ditrutto.
     private void OnCollisionEnter(Collision collisionInfo)
+    {
+        if (collisionInfo.collider.tag == "coin")
         {
-            if (collisionInfo.collider.tag == "coin")
-            {
-                coinCounter.addCoin();
-                Destroy(collisionInfo.collider.gameObject);
-                coinCounter.DisplayCoin();
-            }
+            coinCounter.addCoin();
+            Destroy(collisionInfo.collider.gameObject);
+            coinCounter.DisplayCoin();
+        }
 
 
-            else if (collisionInfo.collider.tag == "powerUp")
-            {
+        else if (collisionInfo.collider.tag == "shield")
+        {
             //decidere se realizzare tanti tag di powerup quanti sono questi oppure trovare un altro modo tramite ID
             //realizzare una funzione che attivi il powerUp/ come  è stato fatto per coinCounter.Add
-                
-                Destroy(collisionInfo.collider.gameObject);
-                shield.ActiveShield();
+
+            Destroy(collisionInfo.collider.gameObject);
+            shield.ActiveShield();
+        }
+        else if (collisionInfo.collider.tag == "health")
+        {
+            int healthPoints = 33;
+            Destroy(collisionInfo.collider.gameObject);
+            playerhealth.incrementHealth(healthPoints);
+        }
+        else if(collisionInfo.collider.tag == "boostDmg")
+        {
+            int newDamage = 33;
+            Destroy(collisionInfo.collider.gameObject);
+            collisionbullet.boostBulletDamage(newDamage);
         }
     }
 

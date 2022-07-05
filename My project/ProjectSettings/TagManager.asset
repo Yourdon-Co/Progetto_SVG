@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - powerUp
   - coin
   - enemy
+  - shield
+  - health
+  - boostDmg
   layers:
   - Default
   - TransparentFX

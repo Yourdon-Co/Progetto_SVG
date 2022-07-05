@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class CollisionBullet : MonoBehaviour
 {
+    private int bulletDamage = 10;
+    int initialbulletDamage;
+    private float time = 5f;
+
+    public int getBulletDamage()
+    {
+        return bulletDamage;
+    }
+    public void setBulletDamage(int damage)
+    {
+        bulletDamage = damage;
+    }
+
+    void Start()
+    {
+        initialbulletDamage = bulletDamage;
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        int bulletDamage = 10;
-
         Debug.Log(collision.body);
         Debug.Log(collision.gameObject);
         Debug.Log(collision.articulationBody);
@@ -20,7 +35,7 @@ public class CollisionBullet : MonoBehaviour
         EnemyLife enemyLife = collision.gameObject.GetComponent<EnemyLife>();
         if (enemyLife != null)
         {
-            enemyLife.decreaseHealth(bulletDamage);
+            enemyLife.decreaseHealth(getBulletDamage());
         }
         //se è attivo lo scudo
         if (collision.gameObject.name == "Shield")
@@ -30,4 +45,18 @@ public class CollisionBullet : MonoBehaviour
         }
 
     }
+
+    public void boostBulletDamage(int newDamage)
+    {
+        setBulletDamage(newDamage);
+        Debug.Log("Danno aumentato: " + newDamage);
+        Invoke("ResetBoost", time);
+    }
+
+    public void ResetBoost()
+    {
+        setBulletDamage(initialbulletDamage);
+        Debug.Log("Boost damage resettato");
+    }
+
 }

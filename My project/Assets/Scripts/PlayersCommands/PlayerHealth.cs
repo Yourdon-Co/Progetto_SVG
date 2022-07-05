@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 TakeDamage(20);
             }
+            healthBar.SetHealth(currentHealth);
         }
         else
         {
@@ -39,7 +40,17 @@ public class PlayerHealth : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
-        healthBar.SetHealth(currentHealth);
+        
+    }
+    public void setHealth(int health)
+    {
+        currentHealth = health;
+    }
+    public void incrementHealth(int health)
+    {
+        if (currentHealth < maxHealth && currentHealth > 0)
+        {
+            currentHealth += health - ((currentHealth+health)%maxHealth);
+        }
     }
 }

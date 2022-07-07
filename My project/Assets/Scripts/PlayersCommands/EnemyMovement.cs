@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     [SerializeField]
-    private float speed = 10f;
+    private float speed = 4f;
 
     [SerializeField]
     private float vertical = 0f;

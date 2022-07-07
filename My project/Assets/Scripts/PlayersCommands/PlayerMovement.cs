@@ -67,7 +67,11 @@ public class PlayerMovement : MonoBehaviour
     private float rotationSpeed = 10f;
 
     private float rotation;
+    private float horizontal;
     private Rigidbody rb;
+
+    [SerializeField]
+    private float thrust = 70f;
 
     public float getSpeed()
     {
@@ -87,17 +91,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        rotation = TouchMovement();
+        //rotation = TouchMovement();
+        // comandi touch sono stati commentati per poter provare il gioco da pc
+        horizontal = Input.GetAxis("Horizontal") * (rotationSpeed/4) * Time.fixedDeltaTime; 
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + transform.forward * speedVertical * Time.fixedDeltaTime);
-        Vector3 yRotation = Vector3.up * rotation * rotationSpeed * Time.fixedDeltaTime;
+        //Vector3 yRotation = Vector3.up * rotation * rotationSpeed * Time.fixedDeltaTime;
+        Vector3 yRotation = Vector3.up * horizontal * rotationSpeed * Time.fixedDeltaTime; // comandi da pc
         Quaternion deltaRotation = Quaternion.Euler(yRotation);
         Quaternion targetRotation = rb.rotation * deltaRotation;
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, 50f * Time.deltaTime));
-        transform.Rotate(0f, rotation * rotationSpeed * Time.fixedDeltaTime, 0f, Space.Self);
+        //transform.Rotate(0f, rotation * rotationSpeed * Time.fixedDeltaTime, 0f, Space.Self);
+        transform.Rotate(0f, horizontal * rotationSpeed * Time.fixedDeltaTime, 0f, Space.Self); // comandi da pc
     }
 
     private int TouchMovement()
@@ -116,5 +124,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         return rotation;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Vector3 bumpVector = rb.transform.;
+        if (collision.gameObject.name == "Enemy 1")
+        {
+            rb.AddForce(-transform.localPosition.x * thrust, 0 , -transform.localPosition.z * thrust, ForceMode.Impulse);
+        }
     }
 }

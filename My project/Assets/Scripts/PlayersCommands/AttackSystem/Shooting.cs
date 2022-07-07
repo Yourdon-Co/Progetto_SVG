@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class Shooting : MonoBehaviour
@@ -12,6 +13,12 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     GameObject bullet;
 
+    [SerializeField]
+    int maxBullet = 10;
+    [SerializeField]
+    private TextMeshProUGUI textAmmo;
+
+
     public Button shootButton;
     private Button btn;
 
@@ -19,6 +26,7 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        textAmmo.text = maxBullet.ToString();
         btn = shootButton.GetComponent<Button>();
         attackPoint.GetComponent<MeshRenderer>().enabled = false;
         btn.onClick.AddListener(ShootFuction);
@@ -33,6 +41,11 @@ public class Shooting : MonoBehaviour
     void ShootFuction()
     {
         Debug.Log("Mouse 0");
-        GameObject CurrentBullet = Instantiate(bullet, attackPoint.GetComponent<Transform>().position + new Vector3(0, 0, 0.5f), attackPoint.GetComponent<Transform>().rotation);
+        if (maxBullet > 0)
+        {
+            GameObject CurrentBullet = Instantiate(bullet, attackPoint.GetComponent<Transform>().position + new Vector3(0, 0, 0.5f), attackPoint.GetComponent<Transform>().rotation);
+            maxBullet--;
+            textAmmo.text = maxBullet.ToString();
+        }
     }
 }

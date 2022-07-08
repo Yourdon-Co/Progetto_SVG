@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionBullet : MonoBehaviour
+public class EnemyCollisonBullet : MonoBehaviour
 {
     private int bulletDamage = 10;
     int initialbulletDamage;
-    private float time = 5f;
     [SerializeField]
-    private GameObject player;//che sarà o il player o l'enemy
+    private GameObject enemy;//che sarà o il player o l'enemy
 
     public int getBulletDamage()
     {
@@ -20,7 +19,7 @@ public class CollisionBullet : MonoBehaviour
     }
 
     void Start()
-    {   
+    {
         initialbulletDamage = bulletDamage;
     }
     private void OnCollisionEnter(Collision collision)
@@ -30,15 +29,15 @@ public class CollisionBullet : MonoBehaviour
         Debug.Log(collision.gameObject);
         Debug.Log(collision.articulationBody);
 
-        if (collision.gameObject.name == "Enemy 1")
-            Debug.Log("Hai colpito il nemico");
+        if (collision.gameObject.name == "Player 1")
+            Debug.Log("Hai colpito il player");
         else
-            Debug.Log("Non hai colpito il nemico");
+            Debug.Log("Non hai colpito il player");
 
-        EnemyLife enemyLife = collision.gameObject.GetComponent<EnemyLife>();
-        if (enemyLife != null)
+        PlayerHealth playerLife = collision.gameObject.GetComponent<PlayerHealth>();
+        if (playerLife != null)
         {
-            enemyLife.decreaseHealth(getBulletDamage());
+            playerLife.decreaseHealth(getBulletDamage());
         }
         //se è attivo lo scudo
         if (collision.gameObject.name == "Shield")
@@ -46,20 +45,5 @@ public class CollisionBullet : MonoBehaviour
             //forse bisogna distruggere anche il bullet
             Destroy(collision.gameObject);
         }
-
     }
-
-    public void boostBulletDamage(int newDamage)
-    {
-        setBulletDamage(newDamage);
-        Debug.Log("Danno aumentato: " + newDamage);
-        Invoke("ResetBoost", time);
-    }
-
-    public void ResetBoost()
-    {
-        setBulletDamage(initialbulletDamage);
-        Debug.Log("Boost damage resettato");
-    }
-
 }

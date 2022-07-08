@@ -62,9 +62,22 @@ public class ObjectCollector : MonoBehaviour
             {
                 Destroy(collisionInfo.collider.gameObject);
                 activated = true;
-                btn.image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite;
-                btn.gameObject.SetActive(true);
 
+                //poichè voglio cambiare l'immagine che ho come figlio del bottone e poichè GetChildComponent
+                //usa DFS e quindi ritorna l'immagine del bottone creo un vettore e trovo il primo figlio
+                //diverso dal padre
+                Image buttonImage = btn.GetComponent<Image>();
+                Image[] images = btn.GetComponentsInChildren<Image>();
+                foreach (Image image in images)
+                {
+                    if (image != buttonImage)
+                    {
+                        image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite; ;
+                        break;
+                    }
+                }
+
+                btn.gameObject.SetActive(true);
                 btn.onClick.AddListener(ActiveShield);
                 
 
@@ -76,7 +89,18 @@ public class ObjectCollector : MonoBehaviour
             {
                 Destroy(collisionInfo.collider.gameObject);
                 activated = true;
-                btn.image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite;
+
+                Image buttonImage = btn.GetComponent<Image>();
+                Image[] images = btn.GetComponentsInChildren<Image>();
+                foreach (Image image in images)
+                {
+                    if (image != buttonImage)
+                    {
+                        image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite; ;
+                        break;
+                    }
+                }
+
                 btn.gameObject.SetActive(true);
 
                 btn.onClick.AddListener(incrementHealth);
@@ -89,7 +113,18 @@ public class ObjectCollector : MonoBehaviour
             {
                 Destroy(collisionInfo.collider.gameObject);
                 activated = true;
-                btn.image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite;
+
+                Image buttonImage = btn.GetComponent<Image>();
+                Image[] images = btn.GetComponentsInChildren<Image>();
+                foreach (Image image in images)
+                {
+                    if (image != buttonImage)
+                    {
+                        image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite; ;
+                        break;
+                    }
+                }
+
                 btn.gameObject.SetActive(true);
 
                 btn.onClick.AddListener(boostBulletDamage);

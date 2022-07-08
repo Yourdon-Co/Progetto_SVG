@@ -14,7 +14,7 @@ public class Shooting : MonoBehaviour
     GameObject bullet;
 
     [SerializeField]
-    int maxBullet = 10;
+    private int maxBullet = 10;
     [SerializeField]
     private TextMeshProUGUI textAmmo;
 

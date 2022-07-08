@@ -9,10 +9,13 @@ public class Menu : MonoBehaviour
 
     [SerializeReference]
     GameObject SettingsUI;
-    public void PlayGame()
+
+   /*La funzione corretta è inserita in LevelSelector
+    * public void PlayGame()
     {
         SceneManager.LoadScene("Arena1");
     }
+    */
 
     public void OpenSettings()
     {

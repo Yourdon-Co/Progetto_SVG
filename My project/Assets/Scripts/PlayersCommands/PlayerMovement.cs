@@ -5,19 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {/*
     public Rigidbody rb;
-
     public float speedHorizontl = 10f;
     public float speedVertical = 5f;
-
     public float vertical =0f;
     public float horizontal=0f;
-
     Vector3 moveDirection;
     Vector3 moveRotation;
-
     [SerializeField]
     public float rotationSpeed =0f;
-
     // Update is called once per frame
     void Update()
     {
@@ -27,24 +22,19 @@ public class PlayerMovement : MonoBehaviour
         //vertical = 1 * speedVertical * Time.deltaTime;
         moveDirection = new Vector3(0, 0, vertical);
         moveRotation = new Vector3(horizontal, 0, 0);
-
         //moveDirection.Normalize();
         //moveRotation.Normalize();
     }
-
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + transform.TransformDirection(moveDirection));
  
-
         if (moveRotation != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveRotation, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-
         }
     }
-
     void TouchMovement()
     {
         if (Input.touchCount > 0)
@@ -60,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         }
     } 
     */
-    
+
     [SerializeField]
     private float speedVertical = 10f;
     [SerializeField]
@@ -78,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         return speedVertical;
     }
 
-    public void setSpeed(float newSpeed) 
+    public void setSpeed(float newSpeed)
     {
         speedVertical = newSpeed;
     }
@@ -93,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //rotation = TouchMovement();
         // comandi touch sono stati commentati per poter provare il gioco da pc
-        horizontal = Input.GetAxis("Horizontal") * (rotationSpeed/4) * Time.fixedDeltaTime; 
+        horizontal = Input.GetAxis("Horizontal") * (rotationSpeed / 4) * Time.fixedDeltaTime;
     }
 
     void FixedUpdate()
@@ -114,11 +104,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            if (Input.GetTouch(0).position.x > Screen.width / 2)
+            if (Input.GetTouch(0).position.x > Screen.width / 2 && Input.GetTouch(0).position.y > Screen.height)
             {
                 rotation = 1;
             }
-            if (Input.GetTouch(0).position.x < Screen.width / 2)
+            if (Input.GetTouch(0).position.x < Screen.width / 2 && Input.GetTouch(0).position.y > Screen.height)
             {
                 rotation = -1;
             }
@@ -130,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         //Vector3 bumpVector = rb.transform.;
         if (collision.gameObject.name == "Enemy 1")
         {
-            rb.AddForce(-transform.localPosition.x * thrust, 0 , -transform.localPosition.z * thrust, ForceMode.Impulse);
+            rb.AddForce(-transform.localPosition.x * thrust, 0, -transform.localPosition.z * thrust, ForceMode.Impulse);
         }
     }
 }

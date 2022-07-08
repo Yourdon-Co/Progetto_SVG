@@ -778,14 +778,15 @@ GameObject:
   m_Component:
   - component: {fileID: 7992692957415581785}
   - component: {fileID: 2158887811492415621}
-  - component: {fileID: 2158887811492415629}
-  - component: {fileID: 2158887811492415626}
-  - component: {fileID: 2158887811492415627}
-  - component: {fileID: 2158887811492415624}
-  - component: {fileID: 2158887811492415625}
-  - component: {fileID: 2158887811492415622}
-  - component: {fileID: 2158887811492415623}
   - component: {fileID: 2158887811492415620}
+  - component: {fileID: 2158887811492415623}
+  - component: {fileID: 2158887811492415627}
+  - component: {fileID: 2158887811492415626}
+  - component: {fileID: 2158887811492415629}
+  - component: {fileID: 2158887811492415624}
+  - component: {fileID: -8644820477671769211}
+  - component: {fileID: 2158887811492415622}
+  - component: {fileID: 2158887811492415625}
   m_Layer: 0
   m_Name: Hatchback
   m_TagString: Untagged
@@ -832,7 +833,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2158887811492415629
+--- !u!114 &2158887811492415620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -841,12 +842,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7273021549724439430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eef5310540bfca4bac583ceb136db54, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a342f98c5a8e4e41b175d412b7d2a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 0
-  player: {fileID: 7273021549724439430}
---- !u!114 &2158887811492415626
+  attractorPlanet: {fileID: 4671239984139515853, guid: 24a4ee67eefbb834782f294144a1cc5e, type: 3}
+--- !u!114 &2158887811492415623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -855,12 +855,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7273021549724439430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27f762ba12c62c344b0582e40584c064, type: 3}
+  m_Script: {fileID: 11500000, guid: c617117eae4703544a7c2531f028e057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7273021549724439430}
-  initialSpeed: 0
-  dashButton: {fileID: 0}
+  speedVertical: 10
+  rotationSpeed: 200
+  thrust: 5
 --- !u!114 &2158887811492415627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,6 +877,35 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 2158887810826770601}
   isAlive: 1
+--- !u!114 &2158887811492415626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273021549724439430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f762ba12c62c344b0582e40584c064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7273021549724439430}
+  initialSpeed: 0
+  dashButton: {fileID: 4377710406779154114, guid: dd96042ae8377ec489e7326b0b1b03b6, type: 3}
+--- !u!114 &2158887811492415629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273021549724439430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eef5310540bfca4bac583ceb136db54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpeed: 0
+  player: {fileID: 7273021549724439430}
 --- !u!114 &2158887811492415624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,8 +922,8 @@ MonoBehaviour:
   bullet: {fileID: 1100747655556533935, guid: af3ebd5055a099f4db670bd7902656f5, type: 3}
   maxBullet: 10
   textAmmo: {fileID: 0}
-  shootButton: {fileID: 0}
---- !u!114 &2158887811492415625
+  shootButton: {fileID: 6333476484524408545, guid: 0f942411d42db0147919fcc45aa54b5c, type: 3}
+--- !u!114 &-8644820477671769211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -903,11 +932,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7273021549724439430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de3aed2db75434246a0a7115ce9b6dd6, type: 3}
+  m_Script: {fileID: 11500000, guid: 51f99544ab4a76b4facbf02b98aa74e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberCoin: 0
-  coinText: {fileID: 0}
+  player: {fileID: 7273021549724439430}
 --- !u!114 &2158887811492415622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,9 +951,9 @@ MonoBehaviour:
   coinCounter: {fileID: 2158887811492415625}
   shield: {fileID: 2158887811348910359}
   playerhealth: {fileID: 2158887811492415627}
-  collisionbullet: {fileID: 7403018340075903385, guid: af3ebd5055a099f4db670bd7902656f5, type: 3}
-  btn: {fileID: 0}
---- !u!114 &2158887811492415623
+  collisionbullet: {fileID: -8644820477671769211}
+  btn: {fileID: 2672877160556560691, guid: aa3f53517834385468d0cd66675a8012, type: 3}
+--- !u!114 &2158887811492415625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -934,25 +962,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7273021549724439430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c617117eae4703544a7c2531f028e057, type: 3}
+  m_Script: {fileID: 11500000, guid: de3aed2db75434246a0a7115ce9b6dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedVertical: 10
-  rotationSpeed: 200
-  thrust: 5
---- !u!114 &2158887811492415620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7273021549724439430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a342f98c5a8e4e41b175d412b7d2a7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attractorPlanet: {fileID: 0}
+  numberCoin: 0
+  coinText: {fileID: 8804921733753762928, guid: 45b6d7ef7fb27b14ca1d8d2ea637f6f1, type: 3}
 --- !u!1 &7878739242158400988
 GameObject:
   m_ObjectHideFlags: 0

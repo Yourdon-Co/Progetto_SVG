@@ -16,7 +16,7 @@ public class CollisionDash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -36,10 +36,42 @@ public class CollisionDash : MonoBehaviour
             }
 
             //se è attivo lo scudo
-            if(collision.gameObject.name == "Shield")
+            if (collision.gameObject.name == "Shield")
             {
                 Destroy(collision.gameObject);
             }
         }
     }
 }
+    
+/*
+        //se il player che fa il dash è il nemico
+        else if (player.tag == "enemy")
+        {
+            if (player.GetComponent<AIEnemy>().getSpeed() > initialSpeed)
+            {
+
+                if (collision.gameObject.name == "Player 1")
+
+                    Debug.Log("Hai colpito player");
+                else
+                    Debug.Log("Non hai colpito player");
+
+                PlayerHealth playerlife = collision.gameObject.GetComponent<PlayerHealth>();
+                if (playerlife != null)
+                {
+                    playerlife.decreaseHealth(dashDamage);
+                }
+                //se è attivo lo scudo
+                if (collision.gameObject.name == "Shield")
+                {
+                    Destroy(collision.gameObject);
+                }
+            }
+
+        }
+
+    }
+*/
+
+

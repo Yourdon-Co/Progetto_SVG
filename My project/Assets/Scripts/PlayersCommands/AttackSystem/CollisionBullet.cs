@@ -7,6 +7,8 @@ public class CollisionBullet : MonoBehaviour
     private int bulletDamage = 10;
     int initialbulletDamage;
     private float time = 5f;
+    [SerializeField]
+    private GameObject player;//che sarà o il player o l'enemy
 
     public int getBulletDamage()
     {
@@ -18,11 +20,12 @@ public class CollisionBullet : MonoBehaviour
     }
 
     void Start()
-    {
+    {   
         initialbulletDamage = bulletDamage;
     }
     private void OnCollisionEnter(Collision collision)
     {
+
         Debug.Log(collision.body);
         Debug.Log(collision.gameObject);
         Debug.Log(collision.articulationBody);

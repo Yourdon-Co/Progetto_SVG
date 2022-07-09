@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectCollector : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class ObjectCollector : MonoBehaviour
     private PlayerHealth playerhealth;
     [SerializeField]
     private CollisionBullet collisionbullet;
+    [SerializeField]
+    private Button btn;
+    private bool activated = false;
+
 
     //non si può utlizzare questa funzione poichè in quetso caso con la funzione trigger bisogna attivare is trigger
     //che disabilita la gravità e se non ci fosse la gravità le monete andrebbero a fanculo per questo come soluzione basta 
@@ -53,22 +58,101 @@ public class ObjectCollector : MonoBehaviour
         {
             //decidere se realizzare tanti tag di powerup quanti sono questi oppure trovare un altro modo tramite ID
             //realizzare una funzione che attivi il powerUp/ come  è stato fatto per coinCounter.Add
+            if (activated == false)
+            {
+                Destroy(collisionInfo.collider.gameObject);
+                activated = true;
 
-            Destroy(collisionInfo.collider.gameObject);
-            shield.ActiveShield();
+                //poichè voglio cambiare l'immagine che ho come figlio del bottone e poichè GetChildComponent
+                //usa DFS e quindi ritorna l'immagine del bottone creo un vettore e trovo il primo figlio
+                //diverso dal padre
+                Image buttonImage = btn.GetComponent<Image>();
+                Image[] images = btn.GetComponentsInChildren<Image>();
+                foreach (Image image in images)
+                {
+                    if (image != buttonImage)
+                    {
+                        image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite; ;
+                        break;
+                    }
+                }
+
+                btn.gameObject.SetActive(true);
+                btn.onClick.AddListener(ActiveShield);
+                
+
+            }
         }
         else if (collisionInfo.collider.tag == "health")
         {
-            int healthPoints = 33;
-            Destroy(collisionInfo.collider.gameObject);
-            playerhealth.incrementHealth(healthPoints);
+            if (activated == false)
+            {
+                Destroy(collisionInfo.collider.gameObject);
+                activated = true;
+
+                Image buttonImage = btn.GetComponent<Image>();
+                Image[] images = btn.GetComponentsInChildren<Image>();
+                foreach (Image image in images)
+                {
+                    if (image != buttonImage)
+                    {
+                        image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite; ;
+                        break;
+                    }
+                }
+
+                btn.gameObject.SetActive(true);
+
+                btn.onClick.AddListener(incrementHealth);
+
+            }
         }
-        else if(collisionInfo.collider.tag == "boostDmg")
+        else if (collisionInfo.collider.tag == "boostDmg")
         {
-            int newDamage = 33;
-            Destroy(collisionInfo.collider.gameObject);
-            collisionbullet.boostBulletDamage(newDamage);
+            if (activated == false)
+            {
+                Destroy(collisionInfo.collider.gameObject);
+                activated = true;
+
+                Image buttonImage = btn.GetComponent<Image>();
+                Image[] images = btn.GetComponentsInChildren<Image>();
+                foreach (Image image in images)
+                {
+                    if (image != buttonImage)
+                    {
+                        image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite; ;
+                        break;
+                    }
+                }
+
+                btn.gameObject.SetActive(true);
+
+                btn.onClick.AddListener(boostBulletDamage);
+
+            }
         }
     }
 
+    void boostBulletDamage()
+    {
+        int newDamage = 33;
+        collisionbullet.boostBulletDamage(newDamage);
+        activated = false;
+        btn.gameObject.SetActive(false);
+    }
+
+    void incrementHealth()
+    {
+        int healthPoints = 33;
+        playerhealth.incrementHealth(healthPoints);
+        activated = false;
+        btn.gameObject.SetActive(false);
+
+    }
+    void ActiveShield()
+    {
+        shield.ActiveShield();
+        activated = false;
+        btn.gameObject.SetActive(false);
+    }
 }

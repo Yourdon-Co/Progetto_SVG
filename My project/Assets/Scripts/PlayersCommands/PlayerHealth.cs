@@ -21,26 +21,25 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth > 0)
+        if (currentHealth <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                TakeDamage(20);
-            }
-            healthBar.SetHealth(currentHealth);
+            Destroy(gameObject);
+            isAlive = false;
+            SceneManager.LoadScene("Home");
+
         }
         else
         {
-            isAlive = false;
-            SceneManager.LoadScene("Home");
+            isAlive = true;
             //da spostare nello script Game Manager che gestirà la schermata di fine partita
         }
     }
 
-    void TakeDamage(int damage)
+    public void decreaseHealth(int damage)
     {
         currentHealth -= damage;
-        
+        healthBar.SetHealth(currentHealth);
+
     }
     public void setHealth(int health)
     {

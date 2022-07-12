@@ -16,7 +16,13 @@ public class Dash : MonoBehaviour
     private float time = 5f;
 
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
+    {
+        dashButton = GameObject.Find("DashButton").GetComponent<Button>();
+    }
+
+        void Start()
     {
         btn = dashButton.GetComponent<Button>();
         initialSpeed = player.GetComponent<PlayerMovement>().getSpeed();

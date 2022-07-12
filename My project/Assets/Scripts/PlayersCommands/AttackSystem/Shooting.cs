@@ -23,6 +23,13 @@ public class Shooting : MonoBehaviour
     private Button btn;
 
 
+    private void Awake()
+    {
+        shootButton = GameObject.Find("ShootingButton").GetComponent<Button>();
+        textAmmo = GameObject.Find("Ammo").GetComponent<TextMeshProUGUI>();
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {

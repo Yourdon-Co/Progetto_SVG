@@ -6,6 +6,7 @@ public class EnemyCollisonBullet : MonoBehaviour
 {
     private int bulletDamage = 10;
     int initialbulletDamage;
+    private float time = 5f;
     [SerializeField]
     private GameObject enemy;//che sarà o il player o l'enemy
 
@@ -18,6 +19,7 @@ public class EnemyCollisonBullet : MonoBehaviour
         bulletDamage = damage;
     }
 
+
     void Start()
     {
         initialbulletDamage = bulletDamage;
@@ -29,7 +31,7 @@ public class EnemyCollisonBullet : MonoBehaviour
         Debug.Log(collision.gameObject);
         Debug.Log(collision.articulationBody);
 
-        if (collision.gameObject.name == "Player 1")
+        if (collision.gameObject != enemy)
             Debug.Log("Hai colpito il player");
         else
             Debug.Log("Non hai colpito il player");
@@ -45,5 +47,20 @@ public class EnemyCollisonBullet : MonoBehaviour
             //forse bisogna distruggere anche il bullet
             Destroy(collision.gameObject);
         }
+
+
+    }
+
+    public void boostBulletDamage(int newDamage)
+    {
+        setBulletDamage(newDamage);
+        Debug.Log("Danno aumentato: " + newDamage);
+        Invoke("ResetBoost", time);
+    }
+
+    public void ResetBoost()
+    {
+        setBulletDamage(initialbulletDamage);
+        Debug.Log("Boost damage resettato");
     }
 }

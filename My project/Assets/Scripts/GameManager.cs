@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float attesa=5f;
 
     public GameObject[] characterPrefabs;
+    public GameObject playerPrefab;
     public GameObject enemyPrefab;
     public GameObject coinPrefab;
     public GameObject healthPrefab;
@@ -30,29 +31,25 @@ public class GameManager : MonoBehaviour
        if(SceneManager.GetActiveScene().name== "Arena0")
         {
 
-            LoadPlayer();
-            LoadEnemy();
+
             LoadCoin();
         }
         else if (SceneManager.GetActiveScene().name == "Arena1")
         {
-            LoadPlayer();
-            LoadEnemy();
+
             LoadCoin();
             LoadPropShield();
         }
         else if (SceneManager.GetActiveScene().name == "Arena2")
         {
-            LoadPlayer();
-            LoadEnemy();
+
             LoadCoin();
             LoadPropShield();
             LoadPropDamage();
         }
         if (SceneManager.GetActiveScene().name == "Arena3")
         {
-            LoadPlayer();
-            LoadEnemy();
+
             LoadCoin();
             LoadPropDamage();
             LoadPropHealth();
@@ -80,21 +77,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Home");
     }
 
-    public void LoadPlayer()
-    {
-        int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
-        GameObject playerPrefab = characterPrefabs[selectedCharacter];
-        GameObject clone =Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        clone.name = "Player 1";
 
-    }
-    public void LoadEnemy()
-    {
-        Vector3 offset = new Vector3(10, 0, 10);
-        GameObject clone = Instantiate(enemyPrefab, offset, Quaternion.identity);
-        clone.name = "Enemey 1";
-
-    }
     public void LoadCoin()
     {
         float planetRadius = 50;//raggio fel pianeta

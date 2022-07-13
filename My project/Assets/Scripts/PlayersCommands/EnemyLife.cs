@@ -19,6 +19,7 @@ public class EnemyLife : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            GameManager.instance.WinGame();
         }
     }
 
@@ -27,5 +28,14 @@ public class EnemyLife : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
-   
+
+    public void incrementHealth(int health)
+    {
+        if (currentHealth < maxHealth && currentHealth > 0)
+        {
+            currentHealth += health - ((currentHealth + health) % maxHealth);
+        }
+    }
+
+
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7533783603342789724}
   - component: {fileID: 7533783603342789727}
+  - component: {fileID: 1103610567966647547}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -52,8 +53,26 @@ MonoBehaviour:
   - {fileID: 6539278367277084408, guid: 331dd0cf672f09e4b8af52141fb4fb7c, type: 3}
   - {fileID: 2268507290084707208, guid: a80836d0f7997c141a6f9864c6204895, type: 3}
   - {fileID: 746997398701306547, guid: 1373189959a1b11448d9d4e9f3a9551c, type: 3}
+  playerPrefab: {fileID: 0}
   enemyPrefab: {fileID: 5354313171792842394, guid: 4e12f0d7f56545c43b88add0a54d96df, type: 3}
   coinPrefab: {fileID: 9174410322917657064, guid: 9565e4a6a45aa784382c2c5ea8d307bb, type: 3}
   healthPrefab: {fileID: 8207746589756544733, guid: fa75c817599f2a14aa05445d34a03e0f, type: 3}
   shieldPrefab: {fileID: 7471038332504671938, guid: 542b5c6f861c9774ab6f3ee16517364e, type: 3}
   powerPrefab: {fileID: 8808118665703677272, guid: 0b5eec3336bd463408463d7fb8dda49c, type: 3}
+--- !u!114 &1103610567966647547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533783603342789726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96290ee087ac4884aa234948b269ad43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeRemaining: 10
+  timerIsRunning: 0
+  timeText: {fileID: 0}
+  coinCounter: {fileID: 0}
+  coinCounterEnemy: {fileID: 0}

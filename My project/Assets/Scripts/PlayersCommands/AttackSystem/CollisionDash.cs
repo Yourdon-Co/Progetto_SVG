@@ -7,6 +7,8 @@ public class CollisionDash : MonoBehaviour
 
     public float initialSpeed;
     public GameObject player;
+    public CoinCounterEnemy coinCounterEnemy;
+
 
 
     // Start is called before the first frame update
@@ -40,6 +42,11 @@ public class CollisionDash : MonoBehaviour
                 if (collision.gameObject.name == "Shield")
                 {
                     Destroy(collision.gameObject);
+                }
+                coinCounterEnemy = collision.gameObject.GetComponent<CoinCounterEnemy>();
+                if (coinCounterEnemy.numberCoin > 0)
+                {
+                    coinCounterEnemy.loseCoinOnDash(coinCounterEnemy.numberCoin / 2, collision.gameObject);//cosi perderà sempre la meta delle monete che ha
                 }
             }
             else

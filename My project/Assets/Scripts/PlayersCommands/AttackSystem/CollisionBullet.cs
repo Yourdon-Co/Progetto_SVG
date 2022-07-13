@@ -10,6 +10,8 @@ public class CollisionBullet : MonoBehaviour
     [SerializeField]
     private GameObject player;//che sarà o il player o l'enemy
 
+
+
     public int getBulletDamage()
     {
         return bulletDamage;
@@ -18,6 +20,7 @@ public class CollisionBullet : MonoBehaviour
     {
         bulletDamage = damage;
     }
+
 
     void Start()
     {
@@ -30,7 +33,7 @@ public class CollisionBullet : MonoBehaviour
         Debug.Log(collision.gameObject);
         Debug.Log(collision.articulationBody);
 
-        if (collision.gameObject.name == "Enemy 1")
+        if (collision.gameObject != player)
         {
             Debug.Log("Hai colpito il nemico");
 

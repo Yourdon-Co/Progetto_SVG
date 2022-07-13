@@ -805,10 +805,12 @@ GameObject:
   - component: {fileID: 6400983389195048745}
   - component: {fileID: 2808014768396367578}
   - component: {fileID: 6400983389195048726}
-  - component: {fileID: 4805381212073372059}
-  - component: {fileID: 8682999306941895818}
   - component: {fileID: 6400983389195048727}
   - component: {fileID: 6400983389195048744}
+  - component: {fileID: 8259971991218583471}
+  - component: {fileID: 2021335107118739146}
+  - component: {fileID: 7478219158246528462}
+  - component: {fileID: 2146575986925570395}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Untagged
@@ -886,36 +888,6 @@ MonoBehaviour:
   maxBullet: 10
   speedVertical: 10
   rotationSpeed: 200
---- !u!114 &4805381212073372059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5354313171792842394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de3aed2db75434246a0a7115ce9b6dd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberCoin: 0
-  coinText: {fileID: 0}
---- !u!114 &8682999306941895818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5354313171792842394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb23d059597efc41aac01581dfadf9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 4304238024617395162}
-  isAlive: 1
 --- !u!114 &6400983389195048727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,6 +915,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 0
   enemy: {fileID: 5354313171792842394}
+  coinCounter: {fileID: 0}
+--- !u!114 &8259971991218583471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354313171792842394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53d92e3124fcbe48bdc318b9a5b65e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shield: {fileID: 5035450300508793753}
+--- !u!114 &2021335107118739146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354313171792842394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1109db68c56f94247aa13f5ec8dac811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 4304238024617395162}
+--- !u!114 &7478219158246528462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354313171792842394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a2d108d6f9bc74e97dca4a6e140aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberCoin: 0
+  coin: {fileID: 9174410322917657064, guid: 9565e4a6a45aa784382c2c5ea8d307bb, type: 3}
+  coinsCollected: []
+--- !u!114 &2146575986925570395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354313171792842394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74ce09a6b1f06c4da2023a05c96b3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinCounterEnemy: {fileID: 7478219158246528462}
+  shield: {fileID: 8259971991218583471}
+  enemyLife: {fileID: 2021335107118739146}
+  enemyCollisionbullet: {fileID: 6400983389195048727}
 --- !u!1 &5954786253866690690
 GameObject:
   m_ObjectHideFlags: 0

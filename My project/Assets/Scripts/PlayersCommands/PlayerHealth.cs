@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Destroy(gameObject);
             isAlive = false;
-            SceneManager.LoadScene("Home");
+            GameManager.instance.LoseGame();
 
         }
         else

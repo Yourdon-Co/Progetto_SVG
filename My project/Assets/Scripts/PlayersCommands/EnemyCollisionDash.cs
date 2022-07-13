@@ -8,6 +8,8 @@ public class EnemyCollisionDash : MonoBehaviour
     public float initialSpeed;
     public GameObject enemy;
     public CoinCounter coinCounter;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class EnemyCollisionDash : MonoBehaviour
 
         if (enemy.GetComponent<AIEnemy>().getSpeed() > initialSpeed)
         {
-            if (collision.gameObject.name == "Player 1")
+            if (collision.gameObject.name == "Player 1" )//this.GetComponent<GameObject>()
             {
 
                 PlayerHealth playerLife = collision.gameObject.GetComponent<PlayerHealth>();
@@ -39,6 +41,7 @@ public class EnemyCollisionDash : MonoBehaviour
                 {
                     Destroy(collision.gameObject);
                 }
+                coinCounter = collision.gameObject.GetComponent<CoinCounter>();
                 if (coinCounter.numberCoin > 0)
                 {
                     coinCounter.loseCoinOnDash(coinCounter.numberCoin / 2, collision.gameObject);//cosi perderà sempre la meta delle monete che ha

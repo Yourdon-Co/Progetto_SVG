@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 2158887811492415625}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -906,6 +906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 0
   player: {fileID: 7273021549724439430}
+  coinCounterEnemy: {fileID: 0}
 --- !u!114 &2158887811492415624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,6 +968,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberCoin: 0
   coinText: {fileID: 8804921733753762928, guid: 45b6d7ef7fb27b14ca1d8d2ea637f6f1, type: 3}
+  coin: {fileID: 0}
+  coinsCollected: []
 --- !u!1 &7878739242158400988
 GameObject:
   m_ObjectHideFlags: 0

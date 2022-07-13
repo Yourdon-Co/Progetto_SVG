@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7533783603342789724}
   - component: {fileID: 7533783603342789727}
   - component: {fileID: 1103610567966647547}
+  - component: {fileID: 276195590543214299}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -76,3 +77,18 @@ MonoBehaviour:
   timeText: {fileID: 0}
   coinCounter: {fileID: 0}
   coinCounterEnemy: {fileID: 0}
+--- !u!114 &276195590543214299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533783603342789726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fa42fb6d231514f8d559cf2d85d2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberPlayers: 0
+  playersMax: 4
+  playersText: {fileID: 0}

@@ -884,7 +884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 0
   attackPoint: {fileID: 8391341339830983971}
-  bullet: {fileID: 1100747655556533935, guid: af3ebd5055a099f4db670bd7902656f5, type: 3}
+  bullet: {fileID: 8209104078872704505, guid: b8f27c5cdee83b941ae40fa65b611441, type: 3}
   maxBullet: 10
   speedVertical: 10
   rotationSpeed: 200

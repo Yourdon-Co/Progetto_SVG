@@ -187,7 +187,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.41176468, g: 1, b: 0.4401623, a: 1}
+      maxColor: {r: 0.41176468, g: 0.68357, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6088,8 +6088,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.4705882, g: 1, b: 0.4742393, a: 0}
-        key1: {r: 0, g: 1, b: 0.006896496, a: 1}
+        key0: {r: 0.49264705, g: 1, b: 1, a: 0}
+        key1: {r: 0.20588237, g: 0.70425975, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -10840,7 +10840,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 1, b: 0, a: 1}
+        key0: {r: 0, g: 0.54509807, b: 1, a: 1}
         key1: {r: 0.2437284, g: 0.2717546, b: 0.33823532, a: 1}
         key2: {r: 0.19215687, g: 0.19215687, b: 0.19215687, a: 0}
         key3: {r: 0.19215687, g: 0.19215687, b: 0.19215687, a: 0}
@@ -10849,7 +10849,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 58714
+        ctime1: 39457
         ctime2: 26618
         ctime3: 26618
         ctime4: 0
@@ -14354,7 +14354,7 @@ GameObject:
   - component: {fileID: 199115639627509156}
   - component: {fileID: 82970340735866730}
   m_Layer: 0
-  m_Name: RocketMeshMissileGreen
+  m_Name: RocketMeshMissileBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14532,7 +14532,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0, a: 1}
+      maxColor: {r: 0, g: 0.791, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

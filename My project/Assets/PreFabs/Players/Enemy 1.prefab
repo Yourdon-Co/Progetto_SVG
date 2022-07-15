@@ -627,8 +627,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5035450300508793753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.059999987, y: 1.4099998, z: -0.16499996}
-  m_LocalScale: {x: 3, y: 6, z: 2}
+  m_LocalPosition: {x: -0.059999987, y: 1.4099998, z: -0.15}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4632829641700930885}
@@ -944,6 +944,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 4304238024617395162}
+  playerCount: {fileID: 0}
 --- !u!114 &7478219158246528462
 MonoBehaviour:
   m_ObjectHideFlags: 0

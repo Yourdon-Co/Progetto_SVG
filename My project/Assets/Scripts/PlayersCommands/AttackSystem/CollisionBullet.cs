@@ -33,7 +33,7 @@ public class CollisionBullet : MonoBehaviour
         Debug.Log(collision.gameObject);
         Debug.Log(collision.articulationBody);
 
-        if (collision.gameObject != player)
+        if (collision.gameObject.name == "Enemy 1")
         {
             Debug.Log("Hai colpito il nemico");
 

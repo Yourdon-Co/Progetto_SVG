@@ -31,7 +31,7 @@ public class EnemyCollisonBullet : MonoBehaviour
         Debug.Log(collision.gameObject);
         Debug.Log(collision.articulationBody);
 
-        if (collision.gameObject != enemy)
+        if (collision.gameObject.name == "Player 1")
             Debug.Log("Hai colpito il player");
         else
             Debug.Log("Non hai colpito il player");

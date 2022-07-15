@@ -29,9 +29,12 @@ public class PlayerCount : MonoBehaviour
         
     }
 
-    public void addPlayer()
+    public void countPlayer()
     {
-        numberPlayers = players.Length + enemies.Length;
+       
+        numberPlayers --;
+        Debug.Log(numberPlayers);
+        Displayplayer();
     }
 
     public void Displayplayer()

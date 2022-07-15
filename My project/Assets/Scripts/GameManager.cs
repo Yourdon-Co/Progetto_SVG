@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         //attiva il canva vittoria
-        DefeatEndGameUI.SetActive(true);
+        VictoryEndGameUI.SetActive(true);
         Invoke("CompleteGame", attesa);
     }
     public void CompleteGame()

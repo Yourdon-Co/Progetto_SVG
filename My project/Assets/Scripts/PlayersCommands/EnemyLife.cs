@@ -22,7 +22,8 @@ public class EnemyLife : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            if (playerCount.numberPlayers - 1 <= 0)
+            playerCount.countPlayer();
+            if (playerCount.numberPlayers  <= 1)
             {
                 GameManager.instance.WinGame();
             }

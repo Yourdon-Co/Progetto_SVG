@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     public bool isAlive;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Destroy(gameObject);
             isAlive = false;
-            SceneManager.LoadScene("Home");
+            GameManager.instance.LoseGame();
 
         }
         else

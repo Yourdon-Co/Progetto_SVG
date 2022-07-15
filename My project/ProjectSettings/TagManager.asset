@@ -9,6 +9,7 @@ TagManager:
   - shield
   - health
   - boostDmg
+  - player
   layers:
   - Default
   - TransparentFX

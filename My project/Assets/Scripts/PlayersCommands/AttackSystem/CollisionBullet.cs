@@ -10,6 +10,8 @@ public class CollisionBullet : MonoBehaviour
     [SerializeField]
     private GameObject player;//che sarà o il player o l'enemy
 
+
+
     public int getBulletDamage()
     {
         return bulletDamage;
@@ -19,8 +21,9 @@ public class CollisionBullet : MonoBehaviour
         bulletDamage = damage;
     }
 
+
     void Start()
-    {   
+    {
         initialbulletDamage = bulletDamage;
     }
     private void OnCollisionEnter(Collision collision)
@@ -31,21 +34,25 @@ public class CollisionBullet : MonoBehaviour
         Debug.Log(collision.articulationBody);
 
         if (collision.gameObject.name == "Enemy 1")
+        {
             Debug.Log("Hai colpito il nemico");
+
+            EnemyLife enemyLife = collision.gameObject.GetComponent<EnemyLife>();
+            if (enemyLife != null)
+            {
+                enemyLife.decreaseHealth(getBulletDamage());
+            }
+            //se è attivo lo scudo
+            if (collision.gameObject.name == "Shield")
+            {
+                //forse bisogna distruggere anche il bullet
+                Destroy(collision.gameObject);
+            }
+        }
         else
             Debug.Log("Non hai colpito il nemico");
 
-        EnemyLife enemyLife = collision.gameObject.GetComponent<EnemyLife>();
-        if (enemyLife != null)
-        {
-            enemyLife.decreaseHealth(getBulletDamage());
-        }
-        //se è attivo lo scudo
-        if (collision.gameObject.name == "Shield")
-        {
-            //forse bisogna distruggere anche il bullet
-            Destroy(collision.gameObject);
-        }
+
 
     }
 

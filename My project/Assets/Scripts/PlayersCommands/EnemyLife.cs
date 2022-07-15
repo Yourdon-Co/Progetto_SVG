@@ -9,6 +9,9 @@ public class EnemyLife : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
 
+    public PlayerCount playerCount;
+
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -19,6 +22,11 @@ public class EnemyLife : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            playerCount.countPlayer();
+            if (playerCount.numberPlayers  <= 1)
+            {
+                GameManager.instance.WinGame();
+            }
         }
     }
 
@@ -27,5 +35,14 @@ public class EnemyLife : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
-   
+
+    public void incrementHealth(int health)
+    {
+        if (currentHealth < maxHealth && currentHealth > 0)
+        {
+            currentHealth += health - ((currentHealth + health) % maxHealth);
+        }
+    }
+
+
 }

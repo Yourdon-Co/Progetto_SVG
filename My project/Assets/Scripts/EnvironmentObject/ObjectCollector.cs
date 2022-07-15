@@ -40,6 +40,12 @@ public class ObjectCollector : MonoBehaviour
     }
     */
 
+    private void Awake()
+    {
+        //inizializzo le reference
+        btn = GameObject.Find("PowerUpButton").GetComponent<Button>();
+    }
+
     //Questa funzione permette al momento della collisione con la moneta o con il powerUp di richiamare nel
     //caso della moneta una funzione che aumenta il numero di monete raccolte,il quale sarà presente nello script 
     //Coin Countere e nel caso del powerUp richiamerà una ipotetica funzione che modifica delle stats,

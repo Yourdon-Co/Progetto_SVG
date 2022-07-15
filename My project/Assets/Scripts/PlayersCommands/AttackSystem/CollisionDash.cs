@@ -7,6 +7,10 @@ public class CollisionDash : MonoBehaviour
 
     public float initialSpeed;
     public GameObject player;
+    public CoinCounterEnemy coinCounterEnemy;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,25 +29,37 @@ public class CollisionDash : MonoBehaviour
         if (player.GetComponent<PlayerMovement>().getSpeed() > initialSpeed)
         {
             if (collision.gameObject.name == "Enemy 1")
+            {
                 Debug.Log("Hai colpito il nemico");
+
+                EnemyLife enemyLife = collision.gameObject.GetComponent<EnemyLife>();
+                if (enemyLife != null)
+                {
+                    enemyLife.decreaseHealth(dashDamage);
+                }
+
+                //se è attivo lo scudo
+                if (collision.gameObject.name == "Shield")
+                {
+                    Destroy(collision.gameObject);
+                }
+                coinCounterEnemy = collision.gameObject.GetComponent<CoinCounterEnemy>();
+                if (coinCounterEnemy.numberCoin > 0)
+                {
+                    coinCounterEnemy.loseCoinOnDash(coinCounterEnemy.numberCoin / 2, collision.gameObject);//cosi perderà sempre la meta delle monete che ha
+                }
+            }
             else
                 Debug.Log("Non hai colpito il nemico");
 
-            EnemyLife enemyLife = collision.gameObject.GetComponent<EnemyLife>();
-            if (enemyLife != null)
-            {
-                enemyLife.decreaseHealth(dashDamage);
-            }
 
-            //se è attivo lo scudo
-            if (collision.gameObject.name == "Shield")
-            {
-                Destroy(collision.gameObject);
-            }
+
+
         }
     }
 }
-    
+//forse va tutto sotto il primo if
+
 /*
         //se il player che fa il dash è il nemico
         else if (player.tag == "enemy")

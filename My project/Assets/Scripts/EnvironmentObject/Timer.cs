@@ -13,6 +13,10 @@ public class Timer : MonoBehaviour
     private bool timerIsRunning = false;
     [SerializeField]
     private TextMeshProUGUI timeText;
+
+    public CoinCounter coinCounter;
+    public CoinCounterEnemy coinCounterEnemy;
+
     private void Start()
     {
         // Starts the timer automatically
@@ -42,7 +46,14 @@ public class Timer : MonoBehaviour
             timeRemaining = 0;
             timerIsRunning = false;
 
-            SceneManager.LoadScene("Home");
+            if (coinCounter.numberCoin >= coinCounterEnemy.numberCoin)
+            {
+                GameManager.instance.WinGame();
+            }
+            else
+            {
+                GameManager.instance.LoseGame();
+            }
             //lanciare la funzione che chiama la schermata di fine partita che andrà spostata in un game manager
         }
     }

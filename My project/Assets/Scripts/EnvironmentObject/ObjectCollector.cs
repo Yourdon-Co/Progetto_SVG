@@ -42,8 +42,8 @@ public class ObjectCollector : MonoBehaviour
 
     private void Awake()
     {
-        //inizializzo le reference
-        btn = GameObject.Find("PowerUpButton").GetComponent<Button>();
+        //inizializzo le reference a runtime
+        //btn = GameObject.Find("PowerUpButton").GetComponent<Button>();
     }
 
     //Questa funzione permette al momento della collisione con la moneta o con il powerUp di richiamare nel
@@ -79,6 +79,7 @@ public class ObjectCollector : MonoBehaviour
                     if (image != buttonImage)
                     {
                         image.sprite = collisionInfo.collider.gameObject.GetComponent<Image>().sprite; ;
+                        image.color = new Color(255, 255, 255, 255);
                         break;
                     }
                 }
@@ -159,6 +160,6 @@ public class ObjectCollector : MonoBehaviour
     {
         shield.ActiveShield();
         activated = false;
-        btn.gameObject.SetActive(false);
+       btn.gameObject.SetActive(false);
     }
 }

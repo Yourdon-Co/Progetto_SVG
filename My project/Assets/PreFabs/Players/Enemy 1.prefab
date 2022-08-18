@@ -805,7 +805,6 @@ GameObject:
   - component: {fileID: 6400983389195048745}
   - component: {fileID: 2808014768396367578}
   - component: {fileID: 6400983389195048726}
-  - component: {fileID: 6400983389195048727}
   - component: {fileID: 6400983389195048744}
   - component: {fileID: 8259971991218583471}
   - component: {fileID: 2021335107118739146}
@@ -884,23 +883,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 0
   attackPoint: {fileID: 8391341339830983971}
-  bullet: {fileID: 8209104078872704505, guid: b8f27c5cdee83b941ae40fa65b611441, type: 3}
+  bullet: {fileID: 2762241048506771820, guid: 1878f6bbbe65b8d488741ad1512f8114, type: 3}
   maxBullet: 10
   speedVertical: 10
   rotationSpeed: 200
---- !u!114 &6400983389195048727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5354313171792842394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35ed2b154acb094fb26581eed0184a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 5354313171792842394}
 --- !u!114 &6400983389195048744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,7 +961,7 @@ MonoBehaviour:
   coinCounterEnemy: {fileID: 7478219158246528462}
   shield: {fileID: 8259971991218583471}
   enemyLife: {fileID: 2021335107118739146}
-  enemyCollisionbullet: {fileID: 6400983389195048727}
+  enemyCollisionbullet: {fileID: 0}
 --- !u!1 &5954786253866690690
 GameObject:
   m_ObjectHideFlags: 0

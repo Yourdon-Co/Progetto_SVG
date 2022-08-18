@@ -190,10 +190,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6400983389195048726, guid: 4e12f0d7f56545c43b88add0a54d96df, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 2762241048506771820, guid: 1878f6bbbe65b8d488741ad1512f8114, type: 3}
     - target: {fileID: 6400983389195048744, guid: 4e12f0d7f56545c43b88add0a54d96df, type: 3}
       propertyPath: coinCounter
       value: 
       objectReference: {fileID: 1298434382}
+    - target: {fileID: 6400983389195048745, guid: 4e12f0d7f56545c43b88add0a54d96df, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e12f0d7f56545c43b88add0a54d96df, type: 3}
 --- !u!1 &125927240
@@ -315,6 +323,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 588773613081672014, guid: 235873d67658b5d40b369121769513c6, type: 3}
   m_PrefabInstance: {fileID: 588773612889230289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &263974598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8005845200955161766, guid: 43041f89d7d8fe34194205e7eebd1aca, type: 3}
+  m_PrefabInstance: {fileID: 8907171563428650596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +963,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2158887811492415621, guid: 0035794a1a1f80c4284883059c98eb05, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158887811492415623, guid: 0035794a1a1f80c4284883059c98eb05, type: 3}
+      propertyPath: thrust
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158887811492415624, guid: 0035794a1a1f80c4284883059c98eb05, type: 3}
+      propertyPath: textAmmo
+      value: 
+      objectReference: {fileID: 263974598}
+    - target: {fileID: 2158887811492415624, guid: 0035794a1a1f80c4284883059c98eb05, type: 3}
+      propertyPath: maxBullet
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2158887811492415625, guid: 0035794a1a1f80c4284883059c98eb05, type: 3}
       propertyPath: coin
       value: 
@@ -951,7 +986,7 @@ PrefabInstance:
     - target: {fileID: 2158887811492415629, guid: 0035794a1a1f80c4284883059c98eb05, type: 3}
       propertyPath: coinCounterEnemy
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 962993146}
     - target: {fileID: 7273021549724439430, guid: 0035794a1a1f80c4284883059c98eb05, type: 3}
       propertyPath: m_Name
       value: Player 1

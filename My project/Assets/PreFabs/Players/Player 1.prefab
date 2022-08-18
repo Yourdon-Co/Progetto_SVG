@@ -784,7 +784,6 @@ GameObject:
   - component: {fileID: 2158887811492415626}
   - component: {fileID: 2158887811492415629}
   - component: {fileID: 2158887811492415624}
-  - component: {fileID: -8644820477671769211}
   - component: {fileID: 2158887811492415622}
   - component: {fileID: 2158887811492415625}
   m_Layer: 0
@@ -924,19 +923,6 @@ MonoBehaviour:
   maxBullet: 10
   textAmmo: {fileID: 0}
   shootButton: {fileID: 6333476484524408545, guid: 0f942411d42db0147919fcc45aa54b5c, type: 3}
---- !u!114 &-8644820477671769211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7273021549724439430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f99544ab4a76b4facbf02b98aa74e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 7273021549724439430}
 --- !u!114 &2158887811492415622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,7 +938,7 @@ MonoBehaviour:
   coinCounter: {fileID: 2158887811492415625}
   shield: {fileID: 2158887811348910359}
   playerhealth: {fileID: 2158887811492415627}
-  collisionbullet: {fileID: -8644820477671769211}
+  collisionbullet: {fileID: 0}
   btn: {fileID: 2672877160556560691, guid: aa3f53517834385468d0cd66675a8012, type: 3}
 --- !u!114 &2158887811492415625
 MonoBehaviour:

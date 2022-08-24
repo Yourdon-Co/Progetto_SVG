@@ -8,7 +8,7 @@ public class CollisionBullet : MonoBehaviour
     int initialbulletDamage;
     private float time = 5f;
     [SerializeField]
-    //private GameObject player;//che sarà o il player o l'enemy
+    private GameObject player;//che sarà o il player o l'enemy
 
 
 
